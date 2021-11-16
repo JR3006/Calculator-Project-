@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<!--Programming competition Calculator-->
+<html>
+    <head>
+        <meta charset ="utf-8">
+        <title>Calculator</title>
+
+        <style type="text/css">
+            body {font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                  font-size: 15pt;
+                  text-align: left;
+                  background-color: cornflowerblue;
+                  color: black;}
+            img {text-align: center;
+                  border:1px solid black;
+                  max-width: 30em; 
+                  max-height:30em;}
+      
+            input {font-size: 20px;
+                  background-color: darkblue;
+                  color: white;}
+      
+          </style>
+        <script type="text/javascript">
+
+            var firstNumber; //Creating first number variable
+            var secondNumber; //Creating second number variable. 
+            var opCounter=[0];
+
+            function start() {
+
+            var addButton = document.getElementById("add");
+            var subButton= document.getElementById("sub");
+            var mulButton = document.getElementById("mul");
+            var divButton = document.getElementById("div");
+            var powButton = document.getElementById("pow");
+            var sqrButton = document.getElementById("sqr");
+            var sinButton = document.getElementById("sin");
+            var cosButton = document.getElementById("cos");
+            var tanButton = document.getElementById("tan");
+           
+            addButton.addEventListener("click", addFunction, false);
+            subButton.addEventListener("click", subFunction, false);
+            mulButton.addEventListener("click", mulFunction, false);
+            divButton.addEventListener("click", divFunction, false);
+            powButton.addEventListener("click", powFunction, false);
+            sqrButton.addEventListener("click", sqrFunction, false);
+            sinButton.addEventListener("click", sinFunction, false);
+            cosButton.addEventListener("click", cosFunction, false);
+            tanButton.addEventListener("click", tanFunction, false);
+            }
+
+            function addFunction(){
+                var counter=opCounter[opCounter.length-1];
+                counter+=1;
+                opCounter.push(counter);
+                firstNumber = window.prompt("Please enter the first integer for your operation:");
+                secondNumber = window.prompt("Please enter the second integer for your operation:");
+                var num1= parseInt(firstNumber);
+                var num2= parseInt(secondNumber); 
+                var sum = num1 + num2 ;
+                document.getElementById("result"+opCounter[opCounter.length-1]).innerHTML = num1+" + "+num2+" is equal to "+sum+".";
+            }
+            function subFunction(){
+                var counter=opCounter[opCounter.length-1];
+                counter+=1;
+                opCounter.push(counter);
+                firstNumber = window.prompt("Please enter the first integer for your operation:");
+                secondNumber = window.prompt("Please enter the second integer for your operation:");
+                var num1= parseInt(firstNumber);
+                var num2= parseInt(secondNumber); 
+                var sub = num1 - num2 ;
+                document.getElementById("result"+opCounter[opCounter.length-1]).innerHTML = num1+" - "+num2+" is equal to "+sub+".";
+            }
+            function mulFunction(){
+                var counter=opCounter[opCounter.length-1];
+                counter+=1;
+                opCounter.push(counter);
+                firstNumber = window.prompt("Please enter the first integer for your operation:");
+                secondNumber = window.prompt("Please enter the second integer for your operation:");
+                var num1= parseInt(firstNumber);
+                var num2= parseInt(secondNumber); 
+                var mul = num1 * num2 ;
+                document.getElementById("result"+opCounter[opCounter.length-1]).innerHTML = num1+" * "+num2+" is equal to "+mul+".";
+            }
+            function divFunction(){
+                var counter=opCounter[opCounter.length-1];
+                counter+=1;
+                opCounter.push(counter);
+                firstNumber = window.prompt("Please enter the first integer for your operation");
+                secondNumber = window.prompt("Please enter the second integer for your operation:");
+                var num1= parseInt(firstNumber);
+                var num2= parseInt(secondNumber); 
+                var div = num1 / num2 ;
+                document.getElementById("result"+opCounter[opCounter.length-1]).innerHTML = num1+" / "+num2+" is equal to "+div+".";
+            }
+
+            function powFunction(){
+                var counter=opCounter[opCounter.length-1];
+                counter+=1;
+                opCounter.push(counter);
+                firstNumber = window.prompt("Please enter the first integer for your operation");
+                secondNumber = window.prompt("Please enter the second integer for your operation:");
+                var num1= parseInt(firstNumber);
+                var num2= parseInt(secondNumber); 
+                var pow = num1 ** num2 ;
+                document.getElementById("result"+opCounter[opCounter.length-1]).innerHTML = num1+" / "+num2+" is equal to "+pow+".";
+            }
+
+            function sqrFunction(){
+                var counter=opCounter[opCounter.length-1];
+                counter+=1;
+                opCounter.push(counter);
+                firstNumber = window.prompt("Please enter the integer you want to get the square root of:");
+                var num1= parseInt(firstNumber);
+                var sqr = Math.sqrt(num1);
+                document.getElementById("result"+opCounter[opCounter.length-1]).innerHTML = "The Square root of "+num1+" is equal to "+sqr+".";
+            }
+
+            function sinFunction(){
+                var counter=opCounter[opCounter.length-1];
+                counter+=1;
+                opCounter.push(counter);
+                firstNumber = window.prompt("Please enter the radians you want to get the sine of:");
+                var num1= parseInt(firstNumber);
+                var sin = Math.sin(num1);
+                document.getElementById("result"+opCounter[opCounter.length-1]).innerHTML = "The Sine of "+num1+" radians is equal to "+sin+".";
+            }
+
+            function cosFunction(){
+                var counter=opCounter[opCounter.length-1];
+                counter+=1;
+                opCounter.push(counter);
+                firstNumber = window.prompt("Please enter the radian you want to get the cosine of:");
+                var num1= parseInt(firstNumber);
+                var cos = Math.cos(num1);
+                document.getElementById("result"+opCounter[opCounter.length-1]).innerHTML = "The Cosine of "+num1+" radians is equal to "+cos+".";
+            }
+
+            function tanFunction(){
+                var counter=opCounter[opCounter.length-1];
+                counter+=1;
+                opCounter.push(counter);
+                firstNumber = window.prompt("Please enter the radian you want to get the cosine of:");
+                var num1= parseInt(firstNumber);
+                var tan = Math.tan(num1);
+                document.getElementById("result"+opCounter[opCounter.length-1]).innerHTML = "The Tangent of "+num1+" radians is equal to "+tan+".";
+            }
+           
+           
+           
+        
+            window.addEventListener("load", start, false);
+        </script>
+
+        <h1>Welcome to the Calculator</h1>
+    </head>
+
+    <body>
+        
+        <p>Select the operation you wish to do:</p>
+
+        <form action="#">
+            <table class="centerTable">
+                <tr>
+                <td><input id="add" type="button" value="Addition"></td>
+                <td><input id="sub" type="button" value="Subtraction"></td>
+                <td><input id="mul" type="button" value="Multiplication"></td>
+                <td><input id="div" type="button" value="Division"></td>
+                <td><input id="pow" type="button" value="Power"></td>
+                <td><input id="sqr" type="button" value="Square Root"></td>
+                <td><input id="sin" type="button" value="Sine"></td>
+                <td><input id="cos" type="button" value="Cosine"></td>
+                <td><input id="tan" type="button" value="Tangent"></td>
+                </tr>
+            </table>
+        </form>
+
+        <p>You have space for ten past operations to be displayed. Reload to start over.</p>
+
+        <h3 id="result1">1.</h3>
+        <h3 id="result2">2.</h3>
+        <h3 id="result3">3.</h3>
+        <h3 id="result4">4.</h3>
+        <h3 id="result5">5.</h3>
+        <h3 id="result6">6.</h3>
+        <h3 id="result7">7.</h3>
+        <h3 id="result8">8.</h3>
+        <h3 id="result9">9.</h3>
+        <h3 id="result10">10.</h3>
+
+
+    </body>
+    <footer>
+        <p>Created by Jose Luis Ron Coka. For comments contact me at: <a href="mailto:jr3412@mynsu.nova.edu">jr3412@mynsu.nova.edu</a></p>
+      </footer>
+</html>
